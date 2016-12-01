@@ -1,0 +1,23 @@
+CRUD operations with student table
+
+Techniques to use:Spring IOC, Spring JPA, Spring MVC, Validations, Spring AOP,UI TAgs, Exception Handeling
+Insert new student in table
+find a student on id
+get list of all students
+
+Layers:
+Dao Layer:Entity Manager-Datasource-DataBase
+Service:DAO
+Controller:Service
+
+Steps:
+ 1.create table
+ 2.Create necessary DTOs
+ 3.Create DAOs
+ 4.Create Service and define transaction
+ 5.Create controller
+
+
+Best Practice:
+ 1.Make every class serializable and define serialVersionUID as default
+ 2.Entity classes should override equals() and hashcode() methods 
