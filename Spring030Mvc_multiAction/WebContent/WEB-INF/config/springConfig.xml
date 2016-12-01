@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<context:component-scan base-package="com.cg.daos, com.cg.service,com.cg.dto" />
+	
+<!-- 	<bean id="dataSource" -->
+<!-- 			class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 			<property name="driverClassName" value="oracle.jdbc.OracleDriver" /> -->
+<!-- 			<property name="url" value="jdbc:oracle:thin:@10.125.6.62:1521:orcl11g" /> -->
+<!-- 			<property name="username" value="Lab1102trg22" /> -->
+<!-- 			<property name="password" value="lab1102oracle" /> -->
+<!-- 		</bean> -->
+	
+		
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	<bean id="dataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${orcl.driver}" />
+			<property name="username" value="${orcl.user}" />
+			<property name="url" value="${orcl.url}" />
+			<property name="password" value="${orcl.password}" />
+		</bean>
+		
+		<bean id="properties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>/WEB-INF/config/oracle.properties</value>
+		</property>
+	</bean>
+
+	
+ 	
+</beans>
